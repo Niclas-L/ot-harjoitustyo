@@ -1,0 +1,128 @@
+git log --stat | cat
+commit 41f70c49fe090630bd3059a3817fab8606ecc8f5
+Author: Niclas-L <lemstromniclas@gmail.com>
+Date:   Tue Mar 14 13:48:58 2023 +0200
+
+    tehtava 11 final commit
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 2ee5f9b9d0df20c9715fd279bd74d8c0bc9cd013
+Author: Niclas-L <lemstromniclas@gmail.com>
+Date:   Tue Mar 14 13:47:07 2023 +0200
+
+    Adding tiedostoja for real
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 1e38a6fc75ddd313c54f6b0fea5279f8de3ea66f
+Author: Niclas-L <lemstromniclas@gmail.com>
+Date:   Tue Mar 14 13:45:49 2023 +0200
+
+    Correction
+
+ file1 | 0
+ file2 | 0
+ file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 8d5f46ee64a425bb23fc76b30d66cb425bbc990c
+Author: Niclas-L <lemstromniclas@gmail.com>
+Date:   Tue Mar 14 13:42:06 2023 +0200
+
+    Adding dir tiedostoja
+
+ file1 | 0
+ file2 | 0
+ file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 14ff35f4e37aadab2c043516f8830ddfdf9524f1
+Author: Niclas-L <lemstromniclas@gmail.com>
+Date:   Tue Mar 14 13:24:56 2023 +0200
+
+    changes to eka.txt and kolmas.txt
+
+ eka.txt    | 5 ++---
+ kolmas.txt | 2 +-
+ 2 files changed, 3 insertions(+), 4 deletions(-)
+
+commit 3ac1b6b6c927880cabc09ca52537de3850e15724
+Author: Niclas-L <lemstromniclas@gmail.com>
+Date:   Tue Mar 14 13:23:02 2023 +0200
+
+    rename tiedosto.txt to eka.txt
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 2e969f181bc1ba52e04fe823ef2080c27c69f0e3
+Author: Niclas-L <lemstromniclas@gmail.com>
+Date:   Tue Mar 14 13:20:51 2023 +0200
+
+    delete toinen.txt
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 6cdedbe7ddfe73ec037f70f31cf509cf93952a4c
+Author: Niclas-L <lemstromniclas@gmail.com>
+Date:   Tue Mar 14 13:19:24 2023 +0200
+
+    modified tiedosto.txt
+
+ tiedosto.txt | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+commit 876f3f4c5ebcfc905905ed4cc3cd1fd06d1858c0
+Author: Niclas-L <lemstromniclas@gmail.com>
+Date:   Tue Mar 14 13:17:56 2023 +0200
+
+    added text to tiedosto.txt
+
+ tiedosto.txt | 20 +++++++++++++++++++-
+ 1 file changed, 19 insertions(+), 1 deletion(-)
+
+commit 629056cb82f1111bff98e4a65009b7302a5a2676
+Author: Niclas-L <lemstromniclas@gmail.com>
+Date:   Tue Mar 14 13:12:47 2023 +0200
+
+    teht. 6 muutokset
+
+ kolmas.txt     | 1 +
+ stuff/jokin.py | 0
+ toinen.txt     | 1 +
+ 3 files changed, 2 insertions(+)
+
+commit f1c92519c8cc61ec5750576c09d27e5a79957cac
+Author: Niclas-L <lemstromniclas@gmail.com>
+Date:   Tue Mar 14 13:10:43 2023 +0200
+
+    lisätään kolmas.txt
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit d0d2f1edffd9b7ba1ad532f321ebbc02a04df5fd
+Author: Niclas-L <lemstromniclas@gmail.com>
+Date:   Tue Mar 14 13:08:23 2023 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 3c53755a4da4b63a9f0694c1f0a796e1eb509345
+Author: Niclas-L <lemstromniclas@gmail.com>
+Date:   Tue Mar 14 12:58:35 2023 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
