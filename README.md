@@ -1,3 +1,9 @@
-# This is my README file
+# Ohjelmistotekniikka, harjoitustyö
 
-In here **I will** *explain stuff* later
+## Tehtävät
+
+### Viikko 1
+
+[gitlog.txt](https://github.com/Niclas-L/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
+
+[komentorivi.txt](https://github.com/Niclas-L/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
