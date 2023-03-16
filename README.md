@@ -2,7 +2,7 @@
 
 ## Documentation
 
-- [Vaatimusmäärittely](https://github.com/Niclas-L/ot-harjoitustyo/)
+- [Vaatimusmäärittely](https://github.com/Niclas-L/ot-harjoitustyo/blob/master/documentation/vaatimusmaarittely.md)
 
 ## Tehtävät
 
