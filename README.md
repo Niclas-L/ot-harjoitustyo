@@ -1,5 +1,9 @@
 # Ohjelmistotekniikka, harjoitustyö
 
+## Documentation
+
+- [Vaatimusmäärittely](https://github.com/Niclas-L/ot-harjoitustyo/)
+
 ## Tehtävät
 
 ### Viikko 1
