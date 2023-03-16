@@ -3,6 +3,7 @@
 ## Documentation
 
 - [Vaatimusmäärittely](https://github.com/Niclas-L/ot-harjoitustyo/blob/master/documentation/vaatimusmaarittely.md)
+- [Tuntikirjanpito](https://github.com/Niclas-L/ot-harjoitustyo/blob/master/documentation/tuntikirjanpito.md)
 
 ## Tehtävät
 
