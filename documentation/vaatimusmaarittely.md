@@ -12,7 +12,7 @@ The goal is to create a functioning clone of the popular game [2048](https://en.
 
 ## User Interface Draft
 ![The game screen functions as the main screen. From here the user can access two other screens, the highscore display and the "how-to-play"-screen.](https://github.com/Niclas-L/ot-harjoitustyo/blob/master/documentation/images/2048functioncalspec.png)
-
+The game screen functions as the main screen. From here the user can access two other screens, the highscore display and the "how-to-play"-screen.
 
 ## Further Development Ideas
 - Add support for tiles larger than 2048
