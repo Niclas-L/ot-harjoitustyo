@@ -9,6 +9,8 @@
 [komentorivi.txt](https://github.com/Niclas-L/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
 
 
-*Making some change to README.md*
+### Viikko 2
 
-This will desync remote repository
+[Viikko 2](https://github.com/Niclas-L/ot-harjoitustyo/tree/master/laskarit/viikko2)
+
+[Unicafe](https://github.com/Niclas-L/ot-harjoitustyo/tree/master/laskarit/viikko2/unicafe)
