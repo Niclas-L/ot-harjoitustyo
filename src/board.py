@@ -5,23 +5,25 @@ from sprites.square import Square
 
 class Board:
     def __init__(self):
-        self.dict = {
-            0:0, 1:0, 2:0, 3:0, 
-            4:0, 5:0, 6:0, 7:0, 
-            8:0, 9:0, 10:0, 11:0, 
-            12:0, 13:0, 14:0, 15:0
-            }
+        self.dict = {}
+        self.initialize_dict()
         # GAME STARTS WITH TWO SQUARES ALREADY FILLED
         self.spawn_square()
         self.spawn_square()
         self.update_list()
+
+    # INITIALIZING SELF.DICT WITH 16 SQUARE OBJECTS NUMBERED 0-15
+    def initialize_dict(self):
+        for i in range(16):
+            x = Square(i)
+            self.dict[i] = x
     
     def update_list(self):
         self.list = [
-            [self.dict[0], self.dict[1], self.dict[2], self.dict[3]],
-            [self.dict[4], self.dict[5], self.dict[6], self.dict[7]],
-            [self.dict[8], self.dict[9], self.dict[10], self.dict[11]],
-            [self.dict[12], self.dict[13], self.dict[14], self.dict[15]]
+            [self.dict[0].get_value(), self.dict[1].get_value(), self.dict[2].get_value(), self.dict[3].get_value()],
+            [self.dict[4].get_value(), self.dict[5].get_value(), self.dict[6].get_value(), self.dict[7].get_value()],
+            [self.dict[8].get_value(), self.dict[9].get_value(), self.dict[10].get_value(), self.dict[11].get_value()],
+            [self.dict[12].get_value(), self.dict[13].get_value(), self.dict[14].get_value(), self.dict[15].get_value()]
         ]
     
     # CHECK FOR EMPTY CELLS AND FILL ONE WITH EITHER 2 OR 4
@@ -31,10 +33,16 @@ class Board:
         empty_cell_list = []
         # GETS A LIST OF DICT KEYS FOR ALL EMPTY CELLS
         for i in self.dict:
-            if self.dict[i] == 0:
+            if self.dict[i].get_value() == 0:
                 empty_cell_list.append(i)
-        # PICKS A RANDOM EMPTY CELL AND FILLS IT WITH EITHER 2 OR 4
+        # PICKS A RANDOM EMPTY CELL AND CALLS IT'S NEW_VALUE METHOD
         if empty_cell_list:
             new_cell = choice(empty_cell_list)
-            self.dict[new_cell] = choice((2, 4))
+            self.dict[new_cell].new_value()
         self.update_list()
+
+    def merge_squares(self, i, j):
+        # SAME NUMBERS, ADDING
+        if self.dict[i] == self.dict[j]:    
+            self.dict[j].grow()
+            self.dict[i] = 0
