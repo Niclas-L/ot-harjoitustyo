@@ -42,7 +42,7 @@ class Board:
         self.update_list()
 
     def merge_squares(self, i, j):
-        # SAME NUMBERS, ADDING
-        if self.dict[i] == self.dict[j]:    
+        # IF SAME NUMBERS, MERGE AND RESET
+        if self.dict[i].get_value() == self.dict[j].get_value():
             self.dict[j].grow()
-            self.dict[i] = 0
+            self.dict[i].reset()
