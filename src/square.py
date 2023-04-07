@@ -18,9 +18,6 @@ class Square(pygame.sprite.Sprite):
     def get_value(self):
         return self._value
 
-    def new_value(self):
-        self._value = choice((2, 4))
-
     def set_value(self, value):
         self._value = value
 

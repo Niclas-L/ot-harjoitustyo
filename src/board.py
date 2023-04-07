@@ -1,7 +1,7 @@
 import pygame
 import config
 from random import choice
-from sprites.square import Square
+from square import Square
 
 class Board:
     def __init__(self):
@@ -38,7 +38,7 @@ class Board:
         # PICKS A RANDOM EMPTY CELL AND CALLS IT'S NEW_VALUE METHOD
         if empty_cell_list:
             new_cell = choice(empty_cell_list)
-            self.dict[new_cell].new_value()
+            self.dict[new_cell].set_value(choice((2, 4)))
         self.update_list()
 
     def merge_squares(self, i, j):
