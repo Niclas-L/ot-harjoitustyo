@@ -2,6 +2,7 @@ import pygame
 
 # THIS IS CURRENTLY VERY MESSY BUT IT WORKS, I DON'T HAVE THE TIME RIGHT NOW TO REFACTOR IT
 
+
 def control_help(control, board):
     # IF ANY SQUARES MOVED, SPAWN NEW NUMBERS. NO CHANGE = INVALID MOVE, NO NEW NUMBER
     board.update_list()
@@ -79,66 +80,90 @@ def down(board):
 
 
 def left(board):
-        # MAKING COPY OF BOARD.LIST TO LATER CONTROL IF SQUARES MOVED OR NOT
-        control = board.list.copy()
+    # MAKING COPY OF BOARD.LIST TO LATER CONTROL IF SQUARES MOVED OR NOT
+    control = board.list.copy()
 
-        for i in range(0, 13, 4):
-            square_control = board.dict[i].get_value()
-            board.merge_squares(i+1, i)
-            if board.dict[i+1].get_value() == 0 and board.dict[i+2].get_value() == 0 and board.dict[i+3].get_value() == square_control:
-                board.merge_squares(i+3, i)
-            if board.dict[i+1].get_value() == 0 and board.dict[i+2].get_value() == square_control:
-                board.merge_squares(i+2, i)
-            if (board.dict[i+1].get_value() == 0 and board.dict[i+2].get_value() == 0) and board.dict[i+3].get_value() == square_control:
-                board.merge_squares(i+3, i)
-            elif board.dict[i+1].get_value() == board.dict[i+2].get_value():
-                board.merge_squares(i+2, i+1)
-            elif board.dict[i+2].get_value() == 0 and board.dict[i+1].get_value() == board.dict[i+3].get_value():
-                board.merge_squares(i+3, i+1)
-            elif board.dict[i+2].get_value() == board.dict[i+3].get_value():
-                board.merge_squares(i+3, i+2)
-            for _ in range(3):
-                if board.dict[i+2].get_value() == 0:
-                    board.dict[i+2].set_value(board.dict[i+3].get_value())
-                    board.dict[i+3].reset()
-                if board.dict[i+1].get_value() == 0:
-                    board.dict[i+1].set_value(board.dict[i+2].get_value())
-                    board.dict[i+2].reset()
-                if board.dict[i].get_value() == 0:
-                    board.dict[i].set_value(board.dict[i+1].get_value())
-                    board.dict[i+1].reset()
+    for i in range(0, 13, 4):
+        square_control = board.dict[i].get_value()
+        board.merge_squares(i + 1, i)
+        if (
+            board.dict[i + 1].get_value() == 0
+            and board.dict[i + 2].get_value() == 0
+            and board.dict[i + 3].get_value() == square_control
+        ):
+            board.merge_squares(i + 3, i)
+        if (
+            board.dict[i + 1].get_value() == 0
+            and board.dict[i + 2].get_value() == square_control
+        ):
+            board.merge_squares(i + 2, i)
+        if (
+            board.dict[i + 1].get_value() == 0 and board.dict[i + 2].get_value() == 0
+        ) and board.dict[i + 3].get_value() == square_control:
+            board.merge_squares(i + 3, i)
+        elif board.dict[i + 1].get_value() == board.dict[i + 2].get_value():
+            board.merge_squares(i + 2, i + 1)
+        elif (
+            board.dict[i + 2].get_value() == 0
+            and board.dict[i + 1].get_value() == board.dict[i + 3].get_value()
+        ):
+            board.merge_squares(i + 3, i + 1)
+        elif board.dict[i + 2].get_value() == board.dict[i + 3].get_value():
+            board.merge_squares(i + 3, i + 2)
+        for _ in range(3):
+            if board.dict[i + 2].get_value() == 0:
+                board.dict[i + 2].set_value(board.dict[i + 3].get_value())
+                board.dict[i + 3].reset()
+            if board.dict[i + 1].get_value() == 0:
+                board.dict[i + 1].set_value(board.dict[i + 2].get_value())
+                board.dict[i + 2].reset()
+            if board.dict[i].get_value() == 0:
+                board.dict[i].set_value(board.dict[i + 1].get_value())
+                board.dict[i + 1].reset()
 
-        control_help(control, board)
+    control_help(control, board)
 
 
 def right(board):
-        # MAKING COPY OF BOARD.LIST TO LATER CONTROL IF SQUARES MOVED OR NOT
-        control = board.list.copy()
+    # MAKING COPY OF BOARD.LIST TO LATER CONTROL IF SQUARES MOVED OR NOT
+    control = board.list.copy()
 
-        for i in range(3, 16, 4):
-            square_control = board.dict[i].get_value()
-            board.merge_squares(i-1, i)
-            if board.dict[i-1].get_value() == 0 and board.dict[i-2].get_value() == 0 and board.dict[i-3].get_value() == square_control:
-                board.merge_squares(i-3, i)
-            if board.dict[i-1].get_value() == 0 and board.dict[i-2].get_value() == square_control:
-                board.merge_squares(i-2, i)
-            if (board.dict[i-1].get_value() == 0 and board.dict[i-2].get_value() == 0) and board.dict[i-3].get_value() == square_control:
-                board.merge_squares(i-3, i)
-            elif board.dict[i-1].get_value() == board.dict[i-2].get_value():
-                board.merge_squares(i-2, i-1)
-            elif board.dict[i-2].get_value() == 0 and board.dict[i-1].get_value() == board.dict[i-3].get_value():
-                board.merge_squares(i-3, i-1)
-            elif board.dict[i-2].get_value() == board.dict[i-3].get_value():
-                board.merge_squares(i-3, i-2)
-            for _ in range(3):
-                if board.dict[i-2].get_value() == 0:
-                    board.dict[i-2].set_value(board.dict[i-3].get_value())
-                    board.dict[i-3].reset()
-                if board.dict[i-1].get_value() == 0:
-                    board.dict[i-1].set_value(board.dict[i-2].get_value())
-                    board.dict[i-2].reset()
-                if board.dict[i].get_value() == 0:
-                    board.dict[i].set_value(board.dict[i-1].get_value())
-                    board.dict[i-1].reset()
-        
-        control_help(control, board)
+    for i in range(3, 16, 4):
+        square_control = board.dict[i].get_value()
+        board.merge_squares(i - 1, i)
+        if (
+            board.dict[i - 1].get_value() == 0
+            and board.dict[i - 2].get_value() == 0
+            and board.dict[i - 3].get_value() == square_control
+        ):
+            board.merge_squares(i - 3, i)
+        if (
+            board.dict[i - 1].get_value() == 0
+            and board.dict[i - 2].get_value() == square_control
+        ):
+            board.merge_squares(i - 2, i)
+        if (
+            board.dict[i - 1].get_value() == 0 and board.dict[i - 2].get_value() == 0
+        ) and board.dict[i - 3].get_value() == square_control:
+            board.merge_squares(i - 3, i)
+        elif board.dict[i - 1].get_value() == board.dict[i - 2].get_value():
+            board.merge_squares(i - 2, i - 1)
+        elif (
+            board.dict[i - 2].get_value() == 0
+            and board.dict[i - 1].get_value() == board.dict[i - 3].get_value()
+        ):
+            board.merge_squares(i - 3, i - 1)
+        elif board.dict[i - 2].get_value() == board.dict[i - 3].get_value():
+            board.merge_squares(i - 3, i - 2)
+        for _ in range(3):
+            if board.dict[i - 2].get_value() == 0:
+                board.dict[i - 2].set_value(board.dict[i - 3].get_value())
+                board.dict[i - 3].reset()
+            if board.dict[i - 1].get_value() == 0:
+                board.dict[i - 1].set_value(board.dict[i - 2].get_value())
+                board.dict[i - 2].reset()
+            if board.dict[i].get_value() == 0:
+                board.dict[i].set_value(board.dict[i - 1].get_value())
+                board.dict[i - 1].reset()
+
+    control_help(control, board)

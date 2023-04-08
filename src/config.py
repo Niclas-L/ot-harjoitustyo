@@ -1,13 +1,12 @@
 import pygame
 
 
-
 # COLORS
-BG_COLOR = (250, 248 , 238)
+BG_COLOR = (250, 248, 238)
 
 
 # FONTS
-#FONT = pygame.font.SysFont("calibri", 30)
+# FONT = pygame.font.SysFont("calibri", 30)
 
 
 # CONFIG

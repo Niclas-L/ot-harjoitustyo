@@ -14,6 +14,9 @@ class GameLoop:
         self.print_list()
 
     def start(self):
+        # GAME STARTS WITH TWO SQUARES FILLED ALREADY
+        self._board.spawn_square()
+        self._board.spawn_square()
 
         while True:
             self._clock.tick(fps)

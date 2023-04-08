@@ -1,5 +1,4 @@
 import pygame
-from random import choice
 
 
 class Square(pygame.sprite.Sprite):
@@ -13,8 +12,8 @@ class Square(pygame.sprite.Sprite):
         self._key = key
 
     def __repr__(self):
-        return str(self._key)
-    
+        return str(self.get_value())
+
     def get_value(self):
         return self._value
 
@@ -23,9 +22,6 @@ class Square(pygame.sprite.Sprite):
 
     def grow(self):
         self._value *= 2
-    
+
     def reset(self):
         self._value = 0
-
-    def render(self):
-        pass

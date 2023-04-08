@@ -13,27 +13,58 @@ class TestSquare(unittest.TestCase):
     def setUp(self):
         self.board = Board()
 
+    # TESTS IF BOARD.INITIALIZE() CREATES A DICTIONARY WITH 16 SQUARE OBJECTS AS VALUES
     def test_initialize(self):
-        # answer = {
-        #     0: Square(0),
-        #     1: Square(1),
-        #     2: Square(2),
-        #     3: Square(3),
-        #     4: Square(4),
-        #     5: Square(5),
-        #     6: Square(6),
-        #     7: Square(7),
-        #     8: Square(8),
-        #     9: Square(9),
-        #     10: Square(10),
-        #     11: Square(11),
-        #     12: Square(12),
-        #     13: Square(13),
-        #     14: Square(14),
-        #     15: Square(15),
-        # }
-        answer = {}
+        l = []
         for i in range(16):
             x = Square(i)
-            answer[i] = x
-        self.assertEqual(answer, self.board.dict)
+            if type(x) == type(self.board.dict[i]):
+                l.append(i)
+        self.assertEqual(16, len(l))
+
+    # TESTS IF BOARD IS INITIALIZED WITH A CORRECTLY STRUCTURED BOARD.LIST
+    def test_update_list(self):
+        answer = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+        self.assertEqual(answer, self.board.list)
+
+    # TESTING IF NEW VALUE IS ADDED TO BOARD CORRECTLY
+    def test_spawn_square(self):
+        self.board.spawn_square(8)
+        answer = False
+        for i in self.board.dict:
+            if self.board.dict[i].get_value() == 8:
+                answer = True
+        self.assertTrue(answer)
+
+    def test_spawn_square_not_empty(self):
+        for i in range(5):
+            self.board.spawn_square(2)
+        self.board.spawn_square(8)
+        answer = False
+        for i in self.board.dict:
+            if self.board.dict[i].get_value() == 8:
+                answer = True
+        self.assertTrue(answer)
+    
+    def test_spawn_square_already_full(self):
+        for i in range(16):
+            self.board.spawn_square(2)
+        self.board.spawn_square(8)
+        answer = False
+        for i in self.board.dict:
+            if self.board.dict[i].get_value() == 8:
+                answer = True
+        self.assertFalse(answer)
+
+    # TESTING IF MERGING SQUARES HANDLES VALUE GROWTH AND RESET CORRECTLY
+    def test_merge_squares(self):
+        self.board.dict[0].set_value(2)
+        self.board.dict[1].set_value(2)
+        self.board.merge_squares(0, 1)
+        self.assertEqual((0, 4), (self.board.dict[0].get_value(), self.board.dict[1].get_value()))
+
+    def test_merge_squares_not_identical(self):
+        self.board.dict[0].set_value(2)
+        self.board.dict[1].set_value(4)
+        self.board.merge_squares(0, 1)
+        self.assertEqual((2, 4), (self.board.dict[0].get_value(), self.board.dict[1].get_value()))

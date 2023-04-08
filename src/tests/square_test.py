@@ -7,9 +7,13 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")
 
 from square import Square
 
+
 class TestSquare(unittest.TestCase):
     def setUp(self):
         self.square = Square(0)
+
+    def test_repr(self):
+        self.assertTrue(str(self.square) == "0")
 
     def test_get_value(self):
         answer = self.square.get_value()
