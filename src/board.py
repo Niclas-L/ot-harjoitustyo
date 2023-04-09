@@ -1,6 +1,6 @@
-import pygame
-import config
 from random import choice
+
+import config
 from square import Square
 
 
@@ -13,9 +13,10 @@ class Board:
     # INITIALIZING SELF.DICT WITH 16 SQUARE OBJECTS NUMBERED 0-15
     def initialize_dict(self):
         for i in range(16):
-            x = Square(i)
-            self.dict[i] = x
+            j = Square(i)
+            self.dict[i] = j
 
+    # CREATES A 4 X 4 MATRIX FROM THE VALUES OF THE SQUARE OBJECTS IN SELF.DICT
     def update_list(self):
         self.list = [
             [
@@ -52,9 +53,10 @@ class Board:
             new_value = choice(config.NUMBER_SEED)
         empty_cell_list = []
         # GETS A LIST OF DICT KEYS FOR ALL EMPTY CELLS
-        for i in self.dict:
-            if self.dict[i].get_value() == 0:
-                empty_cell_list.append(i)
+        # .ITEMS() RETURNS A LIST OF TUPLES, SO WE NEED TO ACCESS THE SECOND ELEMENT OF EACH TUPLE
+        for i in self.dict.items():
+            if i[1].get_value() == 0:
+                empty_cell_list.append(i[0])
         # PICKS A RANDOM EMPTY CELL AND CALLS IT'S SET_VALUE METHOD
         if empty_cell_list:
             new_cell = choice(empty_cell_list)

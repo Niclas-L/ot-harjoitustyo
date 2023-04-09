@@ -1,8 +1,6 @@
+import sys
 import pygame
-import config
 import move
-
-fps = config.FPS
 
 
 class GameLoop:
@@ -20,17 +18,16 @@ class GameLoop:
         self.print_list()
 
         while True:
-            self._clock.tick(fps)
+            self._clock.tick()
             self._handle_events()
 
             # NOT BOTHERING WITH GRAPHICS UNTIL CORE GAME LOOP WORKS IN CONSOLE
             # self._render()
 
     def _handle_events(self):
-        self.keys_pressed = pygame.key.get_pressed()
         for event in self._event_queue.get():
             if event.type == pygame.QUIT:
-                exit()
+                sys.exit()
 
             if event.type == pygame.KEYDOWN:
                 # RESTART THE GAME

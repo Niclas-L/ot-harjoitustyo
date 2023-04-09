@@ -1,6 +1,7 @@
 import pygame
 import config
 
+
 class Renderer:
     def __init__(self, win):
         self._win = win

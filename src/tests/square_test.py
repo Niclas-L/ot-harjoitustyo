@@ -3,9 +3,8 @@ import sys
 import os
 
 # Add the parent directory of the current file to the system path
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-
-from square import Square
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))  # nopep8
+from square import Square  # nopep8
 
 
 class TestSquare(unittest.TestCase):

@@ -3,11 +3,11 @@ import sys
 import os
 
 # Add the parent directory of the current file to the system path
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))  # nopep8
 
-import config
-from board import Board
-from square import Square
+import config  # nopep8
+from board import Board  # nopep8
+from square import Square  # nopep8
 
 
 class TestSquare(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestSquare(unittest.TestCase):
             if self.board.dict[i].get_value() == 8:
                 answer = True
         self.assertTrue(answer)
-    
+
     def test_spawn_square_already_full(self):
         for i in range(16):
             self.board.spawn_square(2)
@@ -70,10 +70,16 @@ class TestSquare(unittest.TestCase):
         self.board.dict[0].set_value(2)
         self.board.dict[1].set_value(2)
         self.board.merge_squares(0, 1)
-        self.assertEqual((0, 4), (self.board.dict[0].get_value(), self.board.dict[1].get_value()))
+        self.assertEqual(
+            (0, 4), (self.board.dict[0].get_value(),
+                     self.board.dict[1].get_value())
+        )
 
     def test_merge_squares_not_identical(self):
         self.board.dict[0].set_value(2)
         self.board.dict[1].set_value(4)
         self.board.merge_squares(0, 1)
-        self.assertEqual((2, 4), (self.board.dict[0].get_value(), self.board.dict[1].get_value()))
+        self.assertEqual(
+            (2, 4), (self.board.dict[0].get_value(),
+                     self.board.dict[1].get_value())
+        )

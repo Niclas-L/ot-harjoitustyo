@@ -1,5 +1,3 @@
-import pygame
-
 # THIS IS CURRENTLY VERY MESSY BUT IT WORKS, I DON'T HAVE THE TIME RIGHT NOW TO REFACTOR IT
 
 
@@ -10,7 +8,7 @@ def control_help(control, board):
         board.spawn_square()
 
 
-def up(board):
+def up(board):  # pylint: disable=invalid-name
     # MAKING COPY OF BOARD.LIST TO LATER CONTROL IF SQUARES MOVED OR NOT
     control = board.list.copy()
 
@@ -98,7 +96,8 @@ def left(board):
         ):
             board.merge_squares(i + 2, i)
         if (
-            board.dict[i + 1].get_value() == 0 and board.dict[i + 2].get_value() == 0
+            board.dict[i + 1].get_value() == 0 and board.dict[i +
+                                                              2].get_value() == 0
         ) and board.dict[i + 3].get_value() == square_control:
             board.merge_squares(i + 3, i)
         elif board.dict[i + 1].get_value() == board.dict[i + 2].get_value():
@@ -143,7 +142,8 @@ def right(board):
         ):
             board.merge_squares(i - 2, i)
         if (
-            board.dict[i - 1].get_value() == 0 and board.dict[i - 2].get_value() == 0
+            board.dict[i - 1].get_value() == 0 and board.dict[i -
+                                                              2].get_value() == 0
         ) and board.dict[i - 3].get_value() == square_control:
             board.merge_squares(i - 3, i)
         elif board.dict[i - 1].get_value() == board.dict[i - 2].get_value():
