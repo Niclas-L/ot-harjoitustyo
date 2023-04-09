@@ -5,6 +5,7 @@ import os
 # Add the parent directory of the current file to the system path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
+import config
 from board import Board
 from square import Square
 
@@ -55,6 +56,14 @@ class TestSquare(unittest.TestCase):
             if self.board.dict[i].get_value() == 8:
                 answer = True
         self.assertFalse(answer)
+
+    def test_spawn_square_default(self):
+        self.board.spawn_square()
+        answer = False
+        for i in self.board.dict:
+            if self.board.dict[i].get_value() in config.NUMBER_SEED:
+                answer = True
+        self.assertTrue(answer)
 
     # TESTING IF MERGING SQUARES HANDLES VALUE GROWTH AND RESET CORRECTLY
     def test_merge_squares(self):
