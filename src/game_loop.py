@@ -11,12 +11,13 @@ class GameLoop:
         self._event_queue = event_queue
         self._renderer = renderer
         self._board = board
-        self.print_list()
 
     def start(self):
         # GAME STARTS WITH TWO SQUARES FILLED ALREADY
         self._board.spawn_square()
         self._board.spawn_square()
+
+        self.print_list()
 
         while True:
             self._clock.tick(fps)
@@ -66,6 +67,7 @@ class GameLoop:
 
     # FOR DEVELOPMENT ONLY (WILL BE DELETED LATER)
     def print_list(self):
+        self._board.update_list()
         for i in self._board.list:
             print(i)
         print()

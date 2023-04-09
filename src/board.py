@@ -46,7 +46,10 @@ class Board:
 
     # CHECK FOR EMPTY CELLS AND FILL ONE WITH EITHER 2 OR 4
     # CHOICE IS GIVEN AS DEFAULT VALUE FOR THE PARAMETER TO ALLOW FOR TESTING
-    def spawn_square(self, new_value=choice((2, 4))):
+    def spawn_square(self, new_value=0):
+        # IF NO PARAMETER GIVEN, PICK A RANDOM NUMBER
+        if new_value == 0:
+            new_value = choice(config.NUMBER_SEED)
         empty_cell_list = []
         # GETS A LIST OF DICT KEYS FOR ALL EMPTY CELLS
         for i in self.dict:
