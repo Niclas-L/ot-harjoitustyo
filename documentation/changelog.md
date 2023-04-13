@@ -7,3 +7,6 @@
 - Implemented a minimum viable product, the game now works using the console as output.
   - Board.py, square.py and move.py handle most of the game logic at this point.
 - Implemented unittests for the most significant classes (Board and Square).
+
+### Week 4
+- Implemented first version of a graphical UI using renderer.py
