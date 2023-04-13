@@ -11,10 +11,21 @@ class Board:
         self.update_list()
 
     # INITIALIZING SELF.DICT WITH 16 SQUARE OBJECTS NUMBERED 0-15
+    # AS WELL AS PYGAME RECT OBJECTS FOR EACH SQUARE
     def initialize_dict(self):
-        for i in range(16):
-            j = Square(i)
-            self.dict[i] = j
+        # # CREATING PYGAME RECT OBJECTS FOR EACH SQUARE OBJECT IN BOARD.DICT
+        for i in range(4):
+            for j in range(4):
+                x_coord = 2 * config.BORDER_WIDTH + j * (
+                    config.BORDER_WIDTH + config.SQUARE_SIZE
+                )
+                y_coord = (
+                    config.BOARD_Y_OFFSET
+                    + config.BORDER_WIDTH
+                    + i * (config.BORDER_WIDTH + config.SQUARE_SIZE)
+                )
+                k = Square(i * 4 + j, x_coord, y_coord)
+                self.dict[i * 4 + j] = k
 
     # CREATES A 4 X 4 MATRIX FROM THE VALUES OF THE SQUARE OBJECTS IN SELF.DICT
     def update_list(self):
@@ -68,3 +79,9 @@ class Board:
         if self.dict[i].get_value() == self.dict[j].get_value():
             self.dict[j].grow()
             self.dict[i].reset()
+
+    def reset(self):
+        for i in self.dict:  # pylint: disable=consider-using-dict-items
+            self.dict[i].reset()
+        self.spawn_square()
+        self.spawn_square()

@@ -16,8 +16,8 @@ def main():
 
     clock = Clock()
     event_queue = EventQueue()
-    renderer = Renderer(win)
     board = Board()
+    renderer = Renderer(win, board)
     game_loop = GameLoop(clock, event_queue, renderer, board)
 
     pygame.init()

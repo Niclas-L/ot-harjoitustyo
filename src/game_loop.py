@@ -20,9 +20,7 @@ class GameLoop:
         while True:
             self._clock.tick()
             self._handle_events()
-
-            # NOT BOTHERING WITH GRAPHICS UNTIL CORE GAME LOOP WORKS IN CONSOLE
-            # self._render()
+            self._render()
 
     def _handle_events(self):
         for event in self._event_queue.get():
@@ -32,9 +30,9 @@ class GameLoop:
             if event.type == pygame.KEYDOWN:
                 # RESTART THE GAME
                 if event.key == pygame.K_ESCAPE:
-                    pass
+                    self._board.reset()
 
-                # ADD NUMBERS ON DEMAND, FOR TESTING PURPOSES
+                # ADD NUMBERS ON DEMAND, FOR MANUAL TESTING PURPOSES
                 if event.key == pygame.K_SPACE:
                     self._board.spawn_square()
                     self.print_list()

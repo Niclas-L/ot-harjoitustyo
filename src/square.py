@@ -1,15 +1,14 @@
 import pygame
+import config
 
 
 class Square(pygame.sprite.Sprite):
-    def __init__(self, key):
+    def __init__(self, key, x_coord, y_coord):
         super().__init__()
 
-        # NOT CONCERNING MYSELF WITH GRAPHICS UNTIL CORE GAME LOOP WORKS IN CONSOLE
-        # self.sqr_size = 120
-        # self.rect = pygame.Rect(x, y, self.sqr_size, self.sqr_size)
         self._value = 0
         self._key = key
+        self.create_rect(x_coord, y_coord)
 
     def __repr__(self):
         return str(self.get_value())
@@ -25,3 +24,8 @@ class Square(pygame.sprite.Sprite):
 
     def reset(self):
         self._value = 0
+
+    # CREATES PYGAME RECT OBJECT FOR THE SQUARE, USED IN RENDERER
+    def create_rect(self, x_coord, y_coord):
+        self.rect = pygame.Rect(
+            x_coord, y_coord, config.SQUARE_SIZE, config.SQUARE_SIZE)
