@@ -8,5 +8,6 @@
 | 8.4 | 1 | Finished implementing unittests for board.py and square.py |
 | 9.4 | 2 | Updated documentation. Implemented invoke-tasks for running and testing the game. |
 | 9.4 | 1.25 | Implemented autoformatting with pylint and autopep8 |
+| 13.4 | 3 | Implemented first version of a graphical UI |
 
-Total hours: 14.25 h
+Total hours: 17.25 h
