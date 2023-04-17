@@ -8,6 +8,7 @@ Currently the game is played using the arrow keys or the wasd keys. The escape k
 
 - [Vaatimusmäärittely](https://github.com/Niclas-L/ot-harjoitustyo/blob/master/documentation/vaatimusmaarittely.md)
 - [Tuntikirjanpito](https://github.com/Niclas-L/ot-harjoitustyo/blob/master/documentation/tuntikirjanpito.md)
+- [Arkitehtuurikuvaus](https://github.com/Niclas-L/ot-harjoitustyo/blob/master/documentation/arkitehtuuri.md)
 - [Changelog](https://github.com/Niclas-L/ot-harjoitustyo/blob/master/documentation/changelog.md)
 
 ## Installing
