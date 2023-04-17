@@ -9,6 +9,7 @@ class Board:
         self.dict = {}
         self.initialize_dict()
         self.update_list()
+        self.score = 0
 
     # INITIALIZING SELF.DICT WITH 16 SQUARE OBJECTS NUMBERED 0-15
     # AS WELL AS PYGAME RECT OBJECTS FOR EACH SQUARE
@@ -55,6 +56,13 @@ class Board:
                 self.dict[15].get_value(),
             ],
         ]
+        self.update_score()
+
+    # UPDATES THE SCORE
+    def update_score(self):
+        self.score = 0
+        for i in self.dict:
+            self.score += self.dict[i].get_value()
 
     # CHECK FOR EMPTY CELLS AND FILL ONE WITH EITHER 2 OR 4
     # CHOICE IS GIVEN AS DEFAULT VALUE FOR THE PARAMETER TO ALLOW FOR TESTING

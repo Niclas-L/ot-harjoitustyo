@@ -12,9 +12,12 @@ class Renderer:
             config.WIDTH - 2 * config.BORDER_WIDTH,
             config.WIDTH - 2 * config.BORDER_WIDTH,
         )
+        
 
     def render(self):
         self._win.fill(config.BG_COLOR)
+        self.draw_title()
+        self.draw_score()
         self.game_grid()
         self.draw_squares()
         self.draw_numbers()
@@ -49,7 +52,7 @@ class Renderer:
                 if cell_number == 0:
                     continue
                 number_font = pygame.font.SysFont(
-                    config.CELL_NUMBER_FONT,
+                    config.FONT,
                     config.CELL_NUMBER_SIZE[cell_number],
                     bold=True,
                 )
@@ -68,3 +71,48 @@ class Renderer:
                     + (config.SQUARE_SIZE // 2 - cell_number_text.get_height() // 2)
                 )
                 self._win.blit(cell_number_text, (x_coord, y_coord))
+
+    def draw_title(self):
+        # GAME TITLE
+        title_font = pygame.font.SysFont(config.FONT, 100, bold=True)
+        title_text = title_font.render("2048", 1, config.TITLE_COLOR)
+        self.title_text_height = title_text.get_height()
+        self._win.blit(
+            title_text,
+            (config.BORDER_WIDTH, 107.5 - (self.title_text_height // 2)),
+        )
+        
+
+    def draw_score(self):
+        # SCORE
+        score_bg_width = 120
+        score_bg_height = self.title_text_height * 0.7
+        score_bg = pygame.Rect(
+            config.WIDTH - (config.BORDER_WIDTH + 120),
+            107.5 - ((score_bg_height) // 2),
+            120,
+            score_bg_height,
+        )
+        pygame.draw.rect(self._win, config.SCORE_BG_COLOR, score_bg, width=0, border_radius=5)
+        score_text_font = pygame.font.SysFont(config.FONT, 15, bold=True)
+        score_text = score_text_font.render("SCORE", 1, config.SCORE_TEXT_COLOR)
+        self._win.blit(
+            score_text,
+            (
+                config.WIDTH
+                - (config.BORDER_WIDTH + 120)
+                + ((score_bg_width - score_text.get_width()) // 2),
+                107.5 - ((score_bg_height) // 2) + 10,
+            ),
+        )
+        score_number_font = pygame.font.SysFont(config.FONT, 30, bold=True)
+        score_number_text = score_number_font.render(str(self._board.score), 1, config.WHITE)
+        self._win.blit(
+            score_number_text,
+            (
+                config.WIDTH
+                - (config.BORDER_WIDTH + 120)
+                + ((score_bg_width - score_number_text.get_width()) // 2),
+                100,
+            ),
+        )
