@@ -10,3 +10,4 @@
 
 ### Week 4
 - Implemented first version of a graphical UI using renderer.py
+- Implemented score system
