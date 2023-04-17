@@ -3,7 +3,9 @@ import sys
 import os
 
 # Add the parent directory of the current file to the system path
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))  # nopep8
+sys.path.insert(
+    0, os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+)  # nopep8
 
 import config  # nopep8
 from board import Board  # nopep8
@@ -18,7 +20,7 @@ class TestSquare(unittest.TestCase):
     def test_initialize(self):
         l = []
         for i in range(16):
-            x = Square(i)
+            x = Square(i, 0, 0)
             if type(x) == type(self.board.dict[i]):
                 l.append(i)
         self.assertEqual(16, len(l))
@@ -71,15 +73,24 @@ class TestSquare(unittest.TestCase):
         self.board.dict[1].set_value(2)
         self.board.merge_squares(0, 1)
         self.assertEqual(
-            (0, 4), (self.board.dict[0].get_value(),
-                     self.board.dict[1].get_value())
+            (0, 4), (self.board.dict[0].get_value(), self.board.dict[1].get_value())
         )
 
+    # TESTING IF MERGING SQUARES HANDLES VALUE GROWTH AND RESET CORRECTLY
     def test_merge_squares_not_identical(self):
         self.board.dict[0].set_value(2)
         self.board.dict[1].set_value(4)
         self.board.merge_squares(0, 1)
         self.assertEqual(
-            (2, 4), (self.board.dict[0].get_value(),
-                     self.board.dict[1].get_value())
+            (2, 4), (self.board.dict[0].get_value(), self.board.dict[1].get_value())
         )
+
+    # TESTING IF BOARD.RESET() HANDLES SQUARE RESET CORRECTLY
+    def test_reset(self):
+        self.board.spawn_square(16)
+        self.board.reset()
+        count = 2
+        for i in self.board.dict:
+            if self.board.dict[i].get_value() != 0:
+                count -= 1
+        self.assertEqual(0, count)

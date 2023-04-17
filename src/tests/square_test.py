@@ -3,13 +3,15 @@ import sys
 import os
 
 # Add the parent directory of the current file to the system path
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))  # nopep8
+sys.path.insert(
+    0, os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+)  # nopep8
 from square import Square  # nopep8
 
 
 class TestSquare(unittest.TestCase):
     def setUp(self):
-        self.square = Square(0)
+        self.square = Square(0, 0, 0)
 
     def test_repr(self):
         self.assertTrue(str(self.square) == "0")
