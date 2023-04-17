@@ -60,6 +60,7 @@ class Board:
 
     # UPDATES THE SCORE
     def update_score(self):
+        # RESETS THE SCORE, THEN ADDS THE VALUE OF EACH SQUARE TO IT
         self.score = 0
         for i in self.dict.items():
             self.score += i[1].get_value()
