@@ -2,7 +2,7 @@
 # Pygame 2048
 
 Implementation of the [2048](https://en.wikipedia.org/wiki/2048_(video_game))-game in python using pygame.
-Currently the game is played using the arrow keys. The escape key can be used to reset the game (no confirmation so beware).
+Currently the game is played using the arrow keys or the wasd keys. The escape key can be used to reset the game (no confirmation so beware).
 
 ## Documentation
 
