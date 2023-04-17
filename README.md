@@ -16,7 +16,7 @@ poetry install
 ```
 2. Perform the required initialisation operations by running the following command:
 ```
-poetry run invoke build
+poetry install
 ```
 3. Start the application using the following command:
 ```
