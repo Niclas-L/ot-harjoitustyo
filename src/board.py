@@ -61,8 +61,8 @@ class Board:
     # UPDATES THE SCORE
     def update_score(self):
         self.score = 0
-        for i in self.dict:
-            self.score += self.dict[i].get_value()
+        for i in self.dict.items():
+            self.score += i[1].get_value()
 
     # CHECK FOR EMPTY CELLS AND FILL ONE WITH EITHER 2 OR 4
     # CHOICE IS GIVEN AS DEFAULT VALUE FOR THE PARAMETER TO ALLOW FOR TESTING

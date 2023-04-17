@@ -38,22 +38,22 @@ class GameLoop:
                     self.print_list()
 
                 # MOVES SQUARES UP
-                if event.key == pygame.K_UP or event.key == pygame.K_w:
+                if event.key in [pygame.K_UP, pygame.K_w]:
                     move.up(self._board)
                     self.print_list()
 
                 # MOVE SQUARES DOWN
-                if event.key == pygame.K_DOWN or event.key == pygame.K_s:
+                if event.key in [pygame.K_DOWN, pygame.K_s]:
                     move.down(self._board)
                     self.print_list()
 
                 # MOVE SQUARES LEFT
-                if event.key == pygame.K_LEFT or event.key == pygame.K_a:
+                if event.key in [pygame.K_LEFT, pygame.K_a]:
                     move.left(self._board)
                     self.print_list()
 
                 # MOVE SQUARES RIGHT
-                if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
+                if event.key in [pygame.K_RIGHT, pygame.K_d]:
                     move.right(self._board)
                     self.print_list()
 

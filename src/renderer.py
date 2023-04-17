@@ -4,6 +4,7 @@ import config
 
 class Renderer:
     def __init__(self, win, board):
+        pygame.init()
         self._win = win
         self._board = board
         self.gridborder = pygame.Rect(
@@ -12,7 +13,9 @@ class Renderer:
             config.WIDTH - 2 * config.BORDER_WIDTH,
             config.WIDTH - 2 * config.BORDER_WIDTH,
         )
-        
+        title_font = pygame.font.SysFont(config.FONT, 100, bold=True)
+        self.title_text = title_font.render("2048", 1, config.TITLE_COLOR)
+        self.title_text_height = self.title_text.get_height()
 
     def render(self):
         self._win.fill(config.BG_COLOR)
@@ -74,14 +77,10 @@ class Renderer:
 
     def draw_title(self):
         # GAME TITLE
-        title_font = pygame.font.SysFont(config.FONT, 100, bold=True)
-        title_text = title_font.render("2048", 1, config.TITLE_COLOR)
-        self.title_text_height = title_text.get_height()
         self._win.blit(
-            title_text,
+            self.title_text,
             (config.BORDER_WIDTH, 107.5 - (self.title_text_height // 2)),
         )
-        
 
     def draw_score(self):
         # SCORE
@@ -93,7 +92,9 @@ class Renderer:
             120,
             score_bg_height,
         )
-        pygame.draw.rect(self._win, config.SCORE_BG_COLOR, score_bg, width=0, border_radius=5)
+        pygame.draw.rect(
+            self._win, config.SCORE_BG_COLOR, score_bg, width=0, border_radius=5
+        )
         score_text_font = pygame.font.SysFont(config.FONT, 15, bold=True)
         score_text = score_text_font.render("SCORE", 1, config.SCORE_TEXT_COLOR)
         self._win.blit(
@@ -106,7 +107,9 @@ class Renderer:
             ),
         )
         score_number_font = pygame.font.SysFont(config.FONT, 30, bold=True)
-        score_number_text = score_number_font.render(str(self._board.score), 1, config.WHITE)
+        score_number_text = score_number_font.render(
+            str(self._board.score), 1, config.WHITE
+        )
         self._win.blit(
             score_number_text,
             (
