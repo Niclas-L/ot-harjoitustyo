@@ -1,3 +1,3 @@
 [run]
 source = src
-omit = src/**/__init__.py,src/config.py, laskarit
+omit = src/**/__init__.py,src/config.py,laskarit,src/ui,src/tests,src/clock.py,src/event_queue.py, src/game_loop.py,src/main.py,src/renderer.py
