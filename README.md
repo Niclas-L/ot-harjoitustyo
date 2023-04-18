@@ -16,11 +16,7 @@ Currently the game is played using the arrow keys or the wasd keys. The escape k
 ```
 poetry install
 ```
-2. Perform the required initialisation operations by running the following command:
-```
-poetry install
-```
-3. Start the application using the following command:
+2. Start the application using the following command:
 ```
 poetry run invoke start
 ```
