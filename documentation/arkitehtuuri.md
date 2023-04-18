@@ -9,3 +9,4 @@ Currently the UI only consists of one single screen, the main game screen. The U
 
 ## Application logic
 
+[Image](https://github.com/Niclas-L/ot-harjoitustyo/blob/master/documentation/images/applicationarchitecture.png)
