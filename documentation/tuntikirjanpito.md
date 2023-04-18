@@ -10,5 +10,5 @@
 | 9.4 | 1.25 | Implemented autoformatting with pylint and autopep8 |
 | 13.4 | 3 | Implemented first version of a graphical UI |
 | 17.4 | 1 | Added score tracking |
-
-Total hours: 18.25 h
+| 18.4 | 1 | Added application architecture documentation |
+Total hours: 19.25 h
