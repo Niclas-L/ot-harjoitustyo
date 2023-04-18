@@ -11,4 +11,4 @@
 | 13.4 | 3 | Implemented first version of a graphical UI |
 | 17.4 | 1 | Added score tracking |
 | 18.4 | 1 | Added application architecture documentation |
-Total hours: 19.25 h
+| Total hours: | 19.25 h |
